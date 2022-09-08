@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ColliderComponent extends Component{
     public static final String Name = "ColliderComponent";
-    public int Code = 1;
+    public int Code = 3;
 
     public ArrayList<ColliderComponent> RegisteredCollisionObjects;
 

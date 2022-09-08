@@ -4,9 +4,14 @@ import com.badlogic.gdx.math.Octree;
 
 public enum ComponentCode {
     Comp(0),
-    ColliderComp(1),
-    TextureComp(2),
-    UITextComp(3)
+    InputComp(1),
+    MoveComp(2),
+    ColliderComp(3),
+    SceneComp(4),
+    TextureComp(5),
+    UITextComp(6),
+    EnemyComp(7)
+
 
 ;
     public final int value;

@@ -8,13 +8,17 @@ import com.tahasanli.gdxplatformer.ComponentCode;
 public class TextureComponent extends Component {
     public Texture texture;
     public static final String Name = "TextureComponent";
-    public int Code = 2;
+    public int Code = 5;
+
+    private float AspectRatio;
 
     public TextureComponent(String texturePath){
         super();
 
         super.Code = Code;
         this.texture = new Texture(texturePath);
+
+        this.AspectRatio = texture.getWidth() / texture.getHeight();
     }
 
     public boolean isFixedSize = false;
@@ -27,12 +31,32 @@ public class TextureComponent extends Component {
     }
 
     public void SetFixedSize(boolean isOpen, Vector2 size){
-        if(isOpen && FixedSize == null)
-            FixedSize = size;
         isFixedSize = isOpen;
+        FixedSize = size;
+    }
+
+    public void SetFixedSize(boolean isOpen, Vector2 size, boolean AspectRatio, boolean AspectWidth){
+        isFixedSize = isOpen;
+        if(AspectRatio) {
+            if (AspectWidth)
+                size.set(size.x, size.x * this.AspectRatio);
+            else
+                size.set(size.y * this.AspectRatio, size.y);
+        }
+        FixedSize = size;
     }
 
     public void SetFixedSize(Vector2 size){
+        FixedSize = size;
+    }
+
+    public void SetFixedSize(Vector2 size, boolean AspectRatio, boolean AspectWidth){
+        if(AspectRatio) {
+            if (AspectWidth)
+                size.set(size.x, size.x * this.AspectRatio);
+            else
+                size.set(size.y * this.AspectRatio, size.y);
+        }
         FixedSize = size;
     }
 
